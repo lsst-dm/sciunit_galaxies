@@ -11,7 +11,11 @@ Note that the following were used for DP1 A360:
 tracts = ((3828, 10463), (3829, 10464), (3828, 10704))
 ... and ECDFS:
 tracts = ((3828, 5063), (3828, 4848), (3829, 4849))
-... with n_skip_extended=1.
+... with:
+    n_skip_extended = 1
+    mag_total_min_star = 17.5
+    mag_total_min_galaxy = 15
+    mag_total_max = 26.5
 """
 
 if __name__ == '__main__':
