@@ -13,24 +13,27 @@ mag_total_min_galaxy = 15
 mag_total_max = 26.5
 n_skip_extended = 1
 
+fields = {
+    "a360": ((3828, 10463), (3829, 10464), (3828, 10704)),
+    "cosmos": ((3828, 9813),),
+    "ecdfs": ((3828, 5063), (3828, 4848), (3829, 4849)),
+    "6093": ((3828, 6093),),
+}
+
 if is_hsc:
     bands = ("g", "r", "i", "z", "y")
     butler_out = dafButler.Butler("/repo/main", collections=["HSC/runs/RC2/w_2024_38/DM-46429"])
     skymap_name_out = "hsc_rings_v1"
     tracts = ((3828, 9813),)
 else:
-    is_abell_360 = False
+    field = "6093"
     bands = ("u", "g", "r", "i", "z", "y")
     butler_out = dafButler.Butler(
         "/repo/dp1_prep",
         collections=["LSSTComCam/runs/DRP/DP1/v29_0_0/DM-50260"],
     )
     skymap_name_out = "lsst_cells_v1"
-    if is_abell_360:
-        tracts = ((3828, 10463), (3829, 10464), (3828, 10704))
-    else:
-        # ECDFS
-        tracts = ((3828, 5063), (3828, 4848), (3829, 4849))
+    tracts = fields[field]
 
 skymap_name_in = "DC2_cells_v1"
 
