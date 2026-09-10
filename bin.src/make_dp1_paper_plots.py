@@ -54,7 +54,7 @@ tools = {
     "sersic_ra": (MatchedRefCoaddDiffCoordRaTool, {}),
     "sersic_dec": (MatchedRefCoaddDiffCoordDecTool, {}),
 }
-bands = ("i", "r")
+bands = ("i", "r", "g", "u")
 
 if not os.path.exists("plots"):
     print("plots directory does not exist; making it now")
